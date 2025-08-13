@@ -26,10 +26,10 @@ const register = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log("Errorr", error);
+    console.log("Errorrrrrr1233", error);
     res.status(500).json({
       success: false,
-      message: "Inter nal server error",
+      message: "Internal server error",
     });
   }
 };
@@ -103,17 +103,20 @@ const logout = (req, res) => {
 
 const authMiddleware = (req, res, next) => {
   const token = req.cookies.token;
-  if (!token)
+  console.log("token", token)
+  if (!token){
+    console.log("1111111")
     return res.status(401).json({
       success: false,
       messageL: "Unathorised user!!",
     });
-
+  }
   try {
     const decoded = jwt.verify(token, "CLIENT_KEY_1234"); //Decode token and pass secret key
     req.user = decoded;
     next();
   } catch (err) {
+    console.log("22222")
     res.status(401).json({
       success: false,
       messageL: "Unathorised user!!",

@@ -2,7 +2,12 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/E_commerce').then(()=>{
+// mongoose.connect('mongodb://localhost:27017/E_commerce').then(()=>{
+//     console.warn("Connected Scussfully")
+// }).catch((err)=>{
+//     console.warn('errr',err)
+
+    mongoose.connect('process.env.MONGO_URI' + '?retryWrites=true&w=majority').then(()=>{
     console.warn("Connected Scussfully")
 }).catch((err)=>{
     console.warn('errr',err)

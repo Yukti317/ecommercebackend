@@ -1,7 +1,7 @@
 //Conection with db
 
 const mongoose = require('mongoose');
-
+require("dotenv").config();
 // mongoose.connect('mongodb://localhost:27017/E_commerce').then(()=>{
 //     console.warn("Connected Scussfully")
 // }).catch((err)=>{

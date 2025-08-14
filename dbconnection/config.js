@@ -1,8 +1,8 @@
 //Conection with db
-
+require('dotenv').config()
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://mehtayukti317:yuk%403171@cluster0.0xtyhi8.mongodb.net/E_commerce?retryWrites=true&w=majority&appName=Cluster0').then(()=>{
+mongoose.connect(process.env.MONGO_URI).then(()=>{
     console.warn("Connected Scussfully")
 }).catch((err)=>{
     console.warn('errr',err)

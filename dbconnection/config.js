@@ -1,5 +1,5 @@
-//Conection with db
-require('dotenv').config()
+// Connection with DB
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 const MONGO_URI = process.env.MONGO_URI;
@@ -29,26 +29,24 @@ async function connectDB() {
   return cached.conn;
 }
 
+module.exports = connectDB;
 
+/* 
+// ----------- Latest code ------------------------
+mongoose.connect(process.env.MONGO_URI).then(()=>{
+    console.warn("Connected Successfully")
+}).catch((err)=>{
+    console.warn('errr',err)
+});
 
-//----------- latest code------------------------
-// mongoose.connect(process.env.MONGO_URI).then(()=>{
-//     console.warn("Connected Scussfully")
-// }).catch((err)=>{
-//     console.warn('errr',err)
-//   })
-// -----------------------------------------------------
+// ----------- Local URI --------------------------
+mongoose.connect('mongodb://localhost:27017/E_commerce').then(()=>{
+    console.warn("Connected Successfully")
+}).catch((err)=>{
+    console.warn('errr',err)});
 
-
-
-//--------- Local URI -----------
-// mongoose.connect('mongodb://localhost:27017/E_commerce').then(()=>{
-//     console.warn("Connected Scussfully")
-// }).catch((err)=>{
-//     console.warn('errr',err)})
----------------------------------------------------------------------------------
-// mongoose.connect('mongodb+srv://mehtayukti317:nAal03pQyXEW4UpW@cluster0.g1myk48.mongodb.net/').then(()=>{
-//     console.warn("Connected Scussfully")
-// }).catch((err)=>{
-//     console.warn('errr',err)})
-
+mongoose.connect('mongodb+srv://mehtayukti317:nAal03pQyXEW4UpW@cluster0.g1myk48.mongodb.net/').then(()=>{
+    console.warn("Connected Successfully")
+}).catch((err)=>{
+    console.warn('errr',err)});
+*/

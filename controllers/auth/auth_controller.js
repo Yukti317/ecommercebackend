@@ -116,6 +116,7 @@ const authMiddleware = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (err) {
+    console.log("errr11111", err)
     console.log("22222")
     res.status(401).json({
       success: false,

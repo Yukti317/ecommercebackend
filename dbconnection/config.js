@@ -2,34 +2,11 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const MONGO_URI = process.env.MONGO_URI;
-
-if (!MONGO_URI) {
-  throw new Error('Please define the MONGO_URI in .env');
-}
-
-// Global cache to reuse connection across function calls
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function connectDB() {
-  if (cached.conn) return cached.conn;
-
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGO_URI, {
-      bufferCommands: false,
-      serverSelectionTimeoutMS: 5000, // fail fast if no server
-    }).then((mongoose) => mongoose);
-  }
-  
-  cached.conn = await cached.promise;
-  return cached.conn;
-}
-
-module.exports = connectDB;
+mongoose.connect("mongodb+srv://mehtayukti317:yuk%403171@cluster0.0xtyhi8.mongodb.net/E_commerce?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
+    console.warn("Connected Successfully")
+}).catch((err)=>{
+    console.warn('errr',err)
+});
 
 /* 
 // ----------- Latest code ------------------------

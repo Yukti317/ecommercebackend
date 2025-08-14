@@ -67,8 +67,8 @@ const login = async (req, res) => {
     res
       .cookie("token", token, {
         httpOnly: true,
-        secure: false, // change to true in production with HTTPS
-        sameSite: "Lax", // use "None" if frontend & backend have different origins with HTTPS
+        secure: true, // change to true in production with HTTPS
+        sameSite: "None", // use "None" if frontend & backend have different origins with HTTPS
         path: "/",
       })
       .json({
